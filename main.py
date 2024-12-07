@@ -8,9 +8,9 @@ while len(IDNum) != 12:
     if len(IDNum) != 12:
         print("学号长度不对，请重新输入。")
     IDNum = input("请输入你的学号: ")
-output.append(r'''
-\documentclass[UTF8]{ctexart}
+output.append(r'''\documentclass[UTF8]{ctexart}
 \usepackage{amsmath}
+\usepackage{lmodern}
 \begin{document}
 \begin{sloppypar}
 \title{\textbf{\huge %(school)s} \\ \textbf{\normalsize %(title)s}}
@@ -131,7 +131,7 @@ with open("output.tex", "w", encoding="utf-8") as f:
     f.writelines(output)
     
 # 使用 latexindent 格式化 LaTeX 文件
-subprocess.run(['latexindent', '-w', 'output.tex', '-l'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+subprocess.run(['latexindent', '-wd', '-s', 'output.tex'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 # 使用 xelatex 编译 LaTeX 文档两次
 for _ in range(2):
