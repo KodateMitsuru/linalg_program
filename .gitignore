@@ -163,3 +163,46 @@ cython_debug/
 
 # Visual Studio Code
 .vscode/
+
+# latex
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ind
+*.lof
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.fls
+*.log
+*.fdb_latexmk
+*.snm
+*.nav
+*.synctex.gz
+*.pdfsync
+*.bak*
+*.dvi
+*.synctex
+*.synctex.gz
+*.xdv
+*.loa
+*.lol
+*.maf
+*.mtc
+*.mtc0
+*.mw
+*.run.xml
+*.tdo
+*.tps
+*.upa
+*.upb
+*.vrb
+*.xdy
