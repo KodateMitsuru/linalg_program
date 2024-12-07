@@ -21,7 +21,6 @@ output.append(r'''
 \tableofcontents
 \newpage
 \pagenumbering{arabic}
-\section{计算行列式|A|}
 ''' % {'school': '上海交通大学', 'title': '线性代数编程作业', 'IDNum': IDNum})
 
 IDNum = list(map(int, list(IDNum)))
@@ -29,17 +28,23 @@ A = zeros(13, 13)
 power = 1
 it = 0
 length = len(IDNum)
+powered_IDNum = IDNum.copy()
 for i in range(13):
     for j in range(13):
-        A[i, j] = Rational(IDNum[it])
+        A[i, j] = Rational(powered_IDNum[it])
         it += 1
         if it == length:
             it = 0
             power += 1
-            IDNum = list(map(int, list(''.join(map(str, map(pow, IDNum, [power] * length))))))
-            length = len(IDNum)
+            powered_IDNum = list(map(int, list(''.join(map(str, map(pow, IDNum, [power] * length))))))
+            length = len(powered_IDNum)
+            
+output.append("\\section{学号矩阵\\textbf{A}}\n")
+output.append(f"矩阵A是:\\\\\n")
+output.append(f"$\\textbf{{A}} = {latex(A)}$\\\\\n")
 
 # 计算行列式
+output.append("\\section{计算矩阵\\textbf{A}的行列式}\n")
 det = A.det()
 output.append(f"$\\left | \\textbf{{A}} \\right | = {det}$\\\\\n")
 output.append("\n")
